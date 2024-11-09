@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Product;
+namespace App\Http\Controllers\Api;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;      
@@ -46,7 +46,6 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'toko_id' => 'required|exists:toko,id',
             'category_id' => 'required|exists:categories,id',
             'name' => 'required|string|max:255',
             'description' => 'required|string|max:255',
@@ -94,7 +93,6 @@ class ProductController extends Controller
         }
 
         $validatedData = $request->validate([
-            'toko_id' => 'sometimes|required|exists:toko,id',
             'category_id' => 'sometimes|required|exists:categories,id',
             'name' => 'sometimes|required|string|max:255',
             'description' => 'sometimes|required|string|max:255',

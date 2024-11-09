@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Product\ProductController;
+use App\Http\Controllers\Api\ProductController;
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('/', 'index');

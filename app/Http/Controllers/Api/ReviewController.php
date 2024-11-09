@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Review;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -70,6 +70,10 @@ class ReviewController extends Controller
             return $this->api_response_error('Review tidak ditemukan.', [], [], 404);
         }
 
+        if ($review->updated_at) {
+            return $this->api_response_error('Review sudah pernah diubah satu kali.', [], [], 403);
+        }
+        
         $validator = Validator::make($request->all(), [
             'rating' => 'sometimes|required|integer|between:1,5',
             'review' => 'nullable|string',

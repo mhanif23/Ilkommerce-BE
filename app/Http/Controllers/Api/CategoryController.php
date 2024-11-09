@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Category;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -53,7 +53,7 @@ class CategoryController extends Controller
             return $this->api_response_error('Category tidak ditemukan.', [], [], 404);
         }
 
-        return $this->api_response_success('Data Category berhasil diambil.', $category);
+        return $this->api_response_success('Data Category berhasil diambil.', $category->toArray());
     }
 
     public function update(Request $request, $id)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\Order;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -37,7 +37,7 @@ class OrderController extends Controller
                 'product_id' => $request->product_id,
                 'quantity' => $request->quantity,
                 'total_price' => $request->total_price,
-                'status' => 'pending', // Default status
+                'status' => 'pending',
                 'created_by' => Auth::id(),
             ]);
 
@@ -59,7 +59,7 @@ class OrderController extends Controller
             return $this->api_response_error('Order tidak ditemukan.', [], [], 404);
         }
 
-        return $this->api_response_success('Data Order berhasil diambil.', $order);
+        return $this->api_response_success('Data Order berhasil diambil.', $order->toArray());
     }
 
     public function update(Request $request, $id)

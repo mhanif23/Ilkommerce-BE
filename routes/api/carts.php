@@ -1,6 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Cart\CartController;
+use App\Http\Controllers\Api\CartController;
 
 Route::middleware(['auth:sanctum', 'session.timeout'])->group(function () {
     Route::controller(CartController::class)->group(function () {

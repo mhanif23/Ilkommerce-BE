@@ -40,7 +40,6 @@ class AuthenticationController extends Controller
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = bcrypt($password);
-            $user->folder_identifier = uniqid(Str::random(15));
             $user->toko_id = null;
             $user->save();
 

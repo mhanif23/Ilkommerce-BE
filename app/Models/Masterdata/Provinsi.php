@@ -13,5 +13,8 @@ class Provinsi extends BaseModel
     protected $primaryKey = 'kode_provinsi';
     public $incrementing = false;
     protected $table = 'masterdata_provinsi';
+    protected $casts = [
+        'kode_provinsi' => 'string',
+    ];
     // protected $guarded = ['id'];
 }

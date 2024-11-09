@@ -13,5 +13,8 @@ class Kota extends BaseModel
     protected $primaryKey = 'kode_kota';
     public $incrementing = false;
     protected $table = 'masterdata_kota';
+    protected $casts = [
+        'kode_kota' => 'string', 
+    ];
     // protected $guarded = ['id'];
 }

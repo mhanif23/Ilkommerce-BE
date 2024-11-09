@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ReviewController;
 
 Route::middleware(['auth:sanctum', 'session.timeout'])->group(function () {
-    Route::controller(OrderController::class)->group(function () {
+    Route::controller(ReviewController::class)->group(function () {
         Route::get('/', 'index');
         Route::post('/store', 'submit');
         Route::get('/detail/{id}', 'show');

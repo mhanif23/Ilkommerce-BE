@@ -13,5 +13,8 @@ class Kecamatan extends BaseModel
     protected $primaryKey = 'kode_kecamatan';
     public $incrementing = false;
     protected $table = 'masterdata_kecamatan';
+    protected $casts = [
+        'kode_kecamatan' => 'string', 
+    ];
     // protected $guarded = ['id'];
 }

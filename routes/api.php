@@ -54,3 +54,9 @@ Route::prefix('categories')->name('categories.')->group(__DIR__ . '/api/categori
 
 // Carts Endpoint
 Route::prefix('carts')->name('carts.')->group(__DIR__ . '/api/carts.php');
+
+// Orders Endpoint
+Route::prefix('orders')->name('orders.')->group(__DIR__ . '/api/orders.php');
+
+// Review Endpoint
+Route::prefix('reviews')->name('reviews.')->group(__DIR__ . '/api/reviews.php');

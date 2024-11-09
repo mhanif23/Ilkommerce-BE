@@ -14,5 +14,8 @@ class Kelurahan extends BaseModel
     protected $primaryKey = 'kode_kelurahan';
     public $incrementing = false;
     protected $table = 'masterdata_kelurahan';
+    protected $casts = [
+        'kode_kelurahan' => 'string', 
+    ];
     // protected $guarded = ['id'];
 }
