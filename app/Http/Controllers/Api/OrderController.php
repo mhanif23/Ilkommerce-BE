@@ -116,4 +116,40 @@ class OrderController extends Controller
             return $this->api_response_error('Gagal menghapus Order.', ['error' => $e->getMessage()]);
         }
     }
+
+    public function checkoutCart(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'products' => 'required|array|min:1',
+            'products.*.product_id' => 'required|exists:products,id',
+            'products.*.quantity' => 'required|integer|min:1',
+            'products.*.total_price' => 'required|numeric|min:0',
+        ]);
+
+        if ($validator->fails()) {
+            return $this->api_response_validator('Periksa data yang anda isi!', [], $validator->errors()->toArray());
+        }
+
+        try {
+            DB::beginTransaction();
+
+            foreach ($request->products as $item) {
+                Order::create([
+                    'user_id' => Auth::id(),
+                    'product_id' => $item['product_id'],
+                    'quantity' => $item['quantity'],
+                    'total_price' => $item['total_price'],
+                    'status' => 'pending',
+                    'created_by' => Auth::id(),
+                ]);
+            }
+
+            DB::commit();
+            return $this->api_response_success("Checkout berhasil.", $request->products);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return $this->api_response_error('Gagal melakukan checkout.', ['error' => $e->getMessage()]);
+        }
+    }
+
 }

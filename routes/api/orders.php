@@ -9,5 +9,6 @@ Route::middleware(['auth:sanctum', 'session.timeout'])->group(function () {
         Route::get('/detail/{id}', 'show');
         Route::post('/update/{id}', 'update');
         Route::post('/delete/{id}', 'destroy');
+        Route::post('/checkout-cart', 'checkoutCart');
     });
 });
