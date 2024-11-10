@@ -216,7 +216,7 @@ class AuthenticationController extends Controller
             $content = '
             <center>
                 <div style="padding-bottom: 30px; padding-top: 30px; font-size: 17px;">
-                    <strong>Tokped - EBTKE</strong>
+                    <strong>Ilkommerce</strong>
                 </div>
             </center>
 

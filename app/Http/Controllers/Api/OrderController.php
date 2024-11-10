@@ -13,7 +13,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-        $orders = Order::where('user_id', Auth::id())->get();
+        $orders = Order::where('user_id', Auth::id())->with('product')->get();
         return $this->api_response_success('Data Order berhasil diambil.', $orders->toArray());
     }
 
