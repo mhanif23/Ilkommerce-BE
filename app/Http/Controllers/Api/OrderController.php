@@ -71,7 +71,7 @@ class OrderController extends Controller
         }
 
         $validator = Validator::make($request->all(), [
-            'status' => 'sometimes|required|in:pending,deliver,completed,canceled',
+            'status' => 'sometimes|required|in:pending,deliver,completed,canceled,reviewed',
         ]);
 
         if ($validator->fails()) {
