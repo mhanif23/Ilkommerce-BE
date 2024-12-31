@@ -18,7 +18,14 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         try {
-            $products = Product::get();
+            $tokoId = $request->input('toko_id');
+
+            $query = Product::query();
+            if (!empty($tokoId)) {
+                $query->where('toko_id', $tokoId);
+            }
+
+            $products = $query->get();
 
             return datatables()->of($products)
                 ->addIndexColumn()

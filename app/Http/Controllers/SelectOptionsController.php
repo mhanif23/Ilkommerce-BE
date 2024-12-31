@@ -49,9 +49,9 @@ class SelectOptionsController extends Controller
     
     public function categories(Request $request)
     {
-        $query = Category::get();
+        $query = Category::query();
 
-        $data = $query->orderBy('id', 'asc')->get();
+        $data = $query->orderBy('id', 'asc')->get(); 
 
         return $this->api_response_success('OK', $data->toArray());
     }

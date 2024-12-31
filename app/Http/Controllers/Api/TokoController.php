@@ -90,7 +90,7 @@ class TokoController extends Controller
             return $this->api_response_error('Toko tidak ditemukan.', [], [], 404);
         }
 
-        return $this->api_response_success('Data Toko berhasil diambil.', $toko);
+        return $this->api_response_success('Data Toko berhasil diambil.', $toko->toArray());
     }
 
     public function update(Request $request)
